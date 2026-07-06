@@ -45,36 +45,6 @@ def find_template(explicit: str | None) -> str:
     raise FileNotFoundError("No .prtdot SolidWorks part template was found.")
 
 
-def gear_points(
-    center_x: float,
-    center_y: float,
-    teeth: int,
-    root_radius: float,
-    outer_radius: float,
-    rotation: float,
-) -> list[tuple[float, float]]:
-    points: list[tuple[float, float]] = []
-    pitch = 2.0 * math.pi / teeth
-
-    # Four points per tooth keeps the sketch robust while still looking gear-like.
-    for index in range(teeth):
-        tooth_center = rotation + index * pitch
-        samples = [
-            (tooth_center - 0.50 * pitch, root_radius),
-            (tooth_center - 0.22 * pitch, outer_radius),
-            (tooth_center + 0.22 * pitch, outer_radius),
-            (tooth_center + 0.50 * pitch, root_radius),
-        ]
-        for angle, radius in samples:
-            points.append(
-                (
-                    center_x + radius * math.cos(angle),
-                    center_y + radius * math.sin(angle),
-                )
-            )
-    return points
-
-
 def draw_closed_polyline(sketch_manager, points: list[tuple[float, float]]) -> None:
     for start, end in zip(points, points[1:] + points[:1]):
         sketch_manager.CreateLine(start[0], start[1], 0.0, end[0], end[1], 0.0)
@@ -89,11 +59,12 @@ def tooth_profile(
     outer_radius: float,
 ) -> list[tuple[float, float]]:
     samples = [
-        (angle - 0.24 * pitch, root_radius),
-        (angle - 0.18 * pitch, outer_radius),
-        (angle + 0.18 * pitch, outer_radius),
-        (angle + 0.24 * pitch, root_radius),
+        (angle - 0.34 * pitch, root_radius),
+        (angle - 0.09 * pitch, outer_radius),
+        (angle + 0.09 * pitch, outer_radius),
+        (angle + 0.34 * pitch, root_radius),
     ]
+
     return [
         (
             center_x + radius * math.cos(sample_angle),
@@ -212,7 +183,6 @@ def create_gear_pair(
     small_root_radius = small_pitch_radius - 1.25 * module
     large_outer_radius = large_pitch_radius + module
     small_outer_radius = small_pitch_radius + module
-    center_distance = large_pitch_radius + small_pitch_radius + center_clearance_mm / 1000.0
     left_center = (-small_pitch_radius, 0.0)
     right_center = (large_pitch_radius + center_clearance_mm / 1000.0, 0.0)
     large_pitch_angle = 2.0 * math.pi / large_teeth
@@ -288,6 +258,22 @@ def close_document(sw, part: Path) -> None:
         print(f"WARN_CLOSE_DOC_FAILED {exc!r}")
 
 
+def close_temporary_active_document(sw) -> None:
+    try:
+        model = sw.ActiveDoc
+        if model is None:
+            return
+        path_name = model.GetPathName if isinstance(model.GetPathName, str) else model.GetPathName()
+        title = model.GetTitle if isinstance(model.GetTitle, str) else model.GetTitle()
+        if path_name:
+            return
+        if str(title).lower().startswith("part") or str(title).startswith("零件"):
+            sw.CloseDoc(title)
+            print(f"CLOSED_TEMPORARY_DOC {title}")
+    except Exception as exc:
+        print(f"WARN_CLOSE_TEMPORARY_DOC_FAILED {exc!r}")
+
+
 def export_png(sw, part: Path, png: Path) -> None:
     png = png.resolve()
     png.parent.mkdir(parents=True, exist_ok=True)
@@ -324,7 +310,7 @@ def main() -> int:
     parser.add_argument("--small-teeth", type=int, default=20)
     parser.add_argument("--module-mm", type=float, default=3.0)
     parser.add_argument("--thickness-mm", type=float, default=12.0)
-    parser.add_argument("--center-clearance-mm", type=float, default=0.8)
+    parser.add_argument("--center-clearance-mm", type=float, default=0.25)
     parser.add_argument("--keep-open", action="store_true")
     args = parser.parse_args()
 
@@ -348,6 +334,10 @@ def main() -> int:
             export_png(sw, Path(args.output), Path(args.image_output))
         if not args.keep_open:
             close_document(sw, Path(args.output))
+    except Exception:
+        if "sw" in locals() and not args.keep_open:
+            close_temporary_active_document(sw)
+        raise
     finally:
         pythoncom.CoUninitialize()
 

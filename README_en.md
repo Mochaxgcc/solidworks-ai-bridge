@@ -25,20 +25,11 @@ It can help agents:
 
 ## Example: Real SolidWorks Export
 
-The following image was exported from an actual SolidWorks test part through COM automation. The meshing gear pair is a better smoke test than a simple block because it exercises sketch contours, gear phasing, multiple extrusions, and view export.
+The following image was exported from an actual SolidWorks test part through COM automation. The meshing gear pair is a better smoke test than a simple block because it exercises sketch contours, gear phasing, multiple extrusions, center holes, and view export.
 
 ![SolidWorks exported gear pair](docs/images/solidworks-exports/gear_pair_test.png)
 
-More exported examples:
-
-| Part | Preview |
-| --- | --- |
-| `solidworks_gear_pair_test.SLDPRT` | <img src="docs/images/solidworks-exports/gear_pair_test.png" width="280"> |
-| `codex_sw_block_test.SLDPRT` | <img src="docs/images/solidworks-exports/codex_sw_block_test.png" width="280"> |
-| `codex_sw_block_test_from_script.SLDPRT` | <img src="docs/images/solidworks-exports/codex_sw_block_test_from_script.png" width="280"> |
-| `skill_sw_block_test.SLDPRT` | <img src="docs/images/solidworks-exports/skill_sw_block_test.png" width="280"> |
-| `solidworks_ai_bridge_test.SLDPRT` | <img src="docs/images/solidworks-exports/solidworks_ai_bridge_test.png" width="280"> |
-| `零件3.SLDPRT` | <img src="docs/images/solidworks-exports/part-3.png" width="280"> |
+The repository keeps only this complex preview image so the README stays focused.
 
 ## Requirements
 

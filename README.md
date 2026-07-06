@@ -27,20 +27,11 @@ SldWorks.Application
 
 ## 示例：真实 SolidWorks 导出的测试零件
 
-下面图片来自脚本创建的 SolidWorks 测试零件，并通过 SolidWorks COM 自动导出。相比普通长方体，齿轮对更适合用来验证 sketch 轮廓、相位关系、多特征拉伸和视图导出是否正常。
+下面图片来自脚本创建的 SolidWorks 测试零件，并通过 SolidWorks COM 自动导出。相比普通长方体，齿轮对更适合用来验证 sketch 轮廓、相位关系、多特征拉伸、中心孔和视图导出是否正常。
 
 ![SolidWorks exported gear pair](docs/images/solidworks-exports/gear_pair_test.png)
 
-更多导出示例：
-
-| 测试件 | 预览 |
-| --- | --- |
-| `solidworks_gear_pair_test.SLDPRT` | <img src="docs/images/solidworks-exports/gear_pair_test.png" width="280"> |
-| `codex_sw_block_test.SLDPRT` | <img src="docs/images/solidworks-exports/codex_sw_block_test.png" width="280"> |
-| `codex_sw_block_test_from_script.SLDPRT` | <img src="docs/images/solidworks-exports/codex_sw_block_test_from_script.png" width="280"> |
-| `skill_sw_block_test.SLDPRT` | <img src="docs/images/solidworks-exports/skill_sw_block_test.png" width="280"> |
-| `solidworks_ai_bridge_test.SLDPRT` | <img src="docs/images/solidworks-exports/solidworks_ai_bridge_test.png" width="280"> |
-| `零件3.SLDPRT` | <img src="docs/images/solidworks-exports/part-3.png" width="280"> |
+GitHub 仓库只保留这一个复杂示例图，避免 README 被多个重复的长方体测试件占满。
 
 ## 适合谁使用？
 
