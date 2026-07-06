@@ -10,6 +10,7 @@ Use the Windows COM Automation entrypoint `SldWorks.Application` to control Soli
 ## Operating Assumptions
 
 - This skill only works on Windows with SolidWorks installed, licensed, and COM-registered.
+- Tested on SolidWorks 2024 (`RevisionNumber = 32.5.0`). Expected to work with recent Windows desktop SolidWorks versions, roughly SolidWorks 2020-2025, when `SldWorks.Application` is available.
 - The agent must be able to run local shell commands and Python in the same user session as SolidWorks.
 - Opening SolidWorks first is recommended but not required.
 - If SolidWorks is already open, attach with `GetActiveObject("SldWorks.Application")`.
@@ -17,6 +18,16 @@ Use the Windows COM Automation entrypoint `SldWorks.Application` to control Soli
 - Do not silently install SolidWorks. SolidWorks is commercial software; instruct the user to install it through their licensed Dassault/SOLIDWORKS installer, company software center, or administrator-managed package.
 - It is acceptable to install Python dependencies such as `pywin32` when the user permits dependency setup.
 - Avoid leaving many generated `Part1`, `Part2`, or `零件1`, `零件2` documents open. Generated test parts should be saved, exported if needed, then closed by default. Keep the document open only when the user explicitly asks to inspect or edit it interactively.
+
+## Compatibility
+
+Use this compatibility language when users ask which SolidWorks versions are supported:
+
+```text
+Tested on SolidWorks 2024. Expected to work with SolidWorks 2020-2025 Windows desktop versions that expose the SldWorks.Application COM Automation API.
+```
+
+Do not claim support for SolidWorks Online, browser-only workflows, macOS/Linux, remote agents without local COM access, or unlicensed/unregistered installations.
 
 ## Quick Probe
 
@@ -41,7 +52,7 @@ python .\scripts\sw_probe.py --create-test-part --output .\solidworks_com_test.S
 Create the focused meshing gear-pair example and export a preview image:
 
 ```powershell
-python .\scripts\create_gear_pair_test_part.py --output .\solidworks_gear_pair_test.SLDPRT --image-output .\docs\images\solidworks-exports\gear_pair_test.png
+python .\scripts\create_gear_pair_test_part.py --output .\solidworks_gear_pair_test.SLDPRT --image-output .\docs\images\solidworks-exports\gear_pair_centered.png
 ```
 
 The gear-pair script closes the generated SolidWorks document after saving and exporting. Add `--keep-open` only when the user wants the generated model left open for inspection.

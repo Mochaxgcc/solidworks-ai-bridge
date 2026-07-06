@@ -42,6 +42,36 @@ The repository keeps only this complex preview image so the README stays focused
 
 SolidWorks is commercial software and is not installed by this skill. Install it through your licensed Dassault/SOLIDWORKS installer, university/company software center, or administrator-managed package.
 
+## Supported Versions
+
+Tested:
+
+```text
+SolidWorks 2024
+RevisionNumber = 32.5.0
+```
+
+Expected to work:
+
+```text
+SolidWorks 2020-2025 Windows desktop versions
+```
+
+More precisely, this skill can be used when the local SolidWorks installation exposes the COM Automation entrypoint:
+
+```text
+SldWorks.Application
+```
+
+Not guaranteed:
+
+- SolidWorks Online / browser-based versions
+- 3DEXPERIENCE cloud environments themselves
+- macOS / Linux
+- Remote AI agents without local Windows COM access
+- Unlicensed, COM-unregistered, or policy-restricted SolidWorks installations
+- Very old SolidWorks versions where API signatures may differ
+
 ## Install for Codex
 
 The simplest approach is to ask a local AI coding agent to install the skill directly:

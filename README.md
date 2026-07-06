@@ -55,6 +55,36 @@ GitHub 仓库只保留这一个复杂示例图，README 保持聚焦。
 
 > 注意：SolidWorks 是商业软件，本项目不会、也不能自动安装 SolidWorks。请通过 Dassault/SOLIDWORKS 官方安装器、学校/公司软件中心或管理员提供的软件包安装。
 
+## 可使用版本
+
+已测试通过：
+
+```text
+SolidWorks 2024
+RevisionNumber = 32.5.0
+```
+
+预期可用：
+
+```text
+SolidWorks 2020-2025 Windows 桌面版
+```
+
+更准确地说，只要本机 SolidWorks 能暴露下面这个 COM Automation 入口，就可以尝试使用：
+
+```text
+SldWorks.Application
+```
+
+不保证适用：
+
+- SolidWorks Online / 浏览器版
+- 3DEXPERIENCE 云端环境本身
+- macOS / Linux
+- 没有本地 Windows COM 权限的远程 AI
+- 未激活、COM 未注册或被公司权限策略限制的 SolidWorks
+- 很老的 SolidWorks 版本，部分 API 参数可能不同
+
 ## 安装到 Codex
 
 最简单的方式是直接把这个仓库发给支持本地命令执行的 AI Agent：
