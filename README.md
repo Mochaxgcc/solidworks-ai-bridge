@@ -1,5 +1,7 @@
 # SolidWorks AI Bridge
 
+[English](README.md) | [中文](README.zh-CN.md)
+
 A portable AI-agent skill for connecting to SolidWorks through the Windows COM Automation API.
 
 It helps local coding agents use `SldWorks.Application` to attach to or launch SolidWorks, check Python dependencies, create a test part, and build task-specific automation for parametric CAD and CAD-to-CAE workflows.
@@ -77,6 +79,7 @@ Use the solidworks-ai-bridge skill to connect to SolidWorks, create a parameteri
 solidworks-ai-bridge/
 ├── SKILL.md
 ├── README.md
+├── README.zh-CN.md
 ├── docs/
 │   └── images/
 │       └── solidworks-ai-bridge-test-part.png
