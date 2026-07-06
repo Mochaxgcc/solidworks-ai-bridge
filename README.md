@@ -4,6 +4,12 @@ A portable AI-agent skill for connecting to SolidWorks through the Windows COM A
 
 It helps local coding agents use `SldWorks.Application` to attach to or launch SolidWorks, check Python dependencies, create a test part, and build task-specific automation for parametric CAD and CAD-to-CAE workflows.
 
+## Example Output
+
+The bundled probe can create a simple 100 mm x 50 mm x 30 mm test part to verify that the full agent-to-SolidWorks automation path works.
+
+![SolidWorks AI Bridge test part](docs/images/solidworks-ai-bridge-test-part.png)
+
 ## Requirements
 
 - Windows
@@ -71,6 +77,9 @@ Use the solidworks-ai-bridge skill to connect to SolidWorks, create a parameteri
 solidworks-ai-bridge/
 ├── SKILL.md
 ├── README.md
+├── docs/
+│   └── images/
+│       └── solidworks-ai-bridge-test-part.png
 └── scripts/
     └── sw_probe.py
 ```
