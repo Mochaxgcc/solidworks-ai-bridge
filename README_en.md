@@ -85,6 +85,8 @@ Create a meshing gear pair test part:
 python .\scripts\create_gear_pair_test_part.py --output .\solidworks_gear_pair_test.SLDPRT --image-output .\docs\images\solidworks-exports\gear_pair_test.png
 ```
 
+By default, the gear script closes the generated SolidWorks document after saving and exporting the preview image so repeated runs do not leave many `Part1`, `Part2`, or similar windows open. Add `--keep-open` if you want to inspect the generated part interactively.
+
 Expected output:
 
 ```text

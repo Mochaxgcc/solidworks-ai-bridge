@@ -110,6 +110,12 @@ python .\scripts\sw_probe.py --create-test-part --output .\solidworks_com_test.S
 python .\scripts\create_gear_pair_test_part.py --output .\solidworks_gear_pair_test.SLDPRT --image-output .\docs\images\solidworks-exports\gear_pair_test.png
 ```
 
+齿轮脚本默认会在保存和导出图片后关闭生成的 SolidWorks 文档，避免 SolidWorks 里堆积很多 `零件1`、`零件2` 这类窗口。如果需要保留窗口用于检查，可以追加：
+
+```powershell
+--keep-open
+```
+
 正常情况下会看到类似输出：
 
 ```text
