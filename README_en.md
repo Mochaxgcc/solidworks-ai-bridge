@@ -44,7 +44,19 @@ SolidWorks is commercial software and is not installed by this skill. Install it
 
 ## Install for Codex
 
-Copy this repository to:
+The simplest approach is to ask a local AI coding agent to install the skill directly:
+
+```text
+Install the SolidWorks AI Bridge skill from Mochaxgcc/solidworks-ai-bridge and test the SolidWorks COM connection.
+```
+
+Or use the full URL:
+
+```text
+Install the SolidWorks AI Bridge skill from https://github.com/Mochaxgcc/solidworks-ai-bridge and test the SolidWorks COM connection.
+```
+
+For manual installation, copy this repository to:
 
 ```text
 %USERPROFILE%\.codex\skills\solidworks-ai-bridge

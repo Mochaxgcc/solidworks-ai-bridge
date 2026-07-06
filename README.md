@@ -57,7 +57,19 @@ GitHub 仓库只保留这一个复杂示例图，README 保持聚焦。
 
 ## 安装到 Codex
 
-把这个仓库复制到：
+最简单的方式是直接把这个仓库发给支持本地命令执行的 AI Agent：
+
+```text
+帮我从 Mochaxgcc/solidworks-ai-bridge 安装 SolidWorks AI Bridge skill，并测试 SolidWorks COM 连接。
+```
+
+或者使用完整链接：
+
+```text
+帮我从 https://github.com/Mochaxgcc/solidworks-ai-bridge 安装 SolidWorks AI Bridge skill，并测试 SolidWorks COM 连接。
+```
+
+如果需要手动安装，把这个仓库复制到：
 
 ```text
 %USERPROFILE%\.codex\skills\solidworks-ai-bridge
