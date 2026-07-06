@@ -288,7 +288,7 @@ def export_png(sw, part: Path, png: Path) -> None:
     model.GraphicsRedraw2()
 
     bmp = png.with_suffix(".bmp")
-    ok = model.SaveBMP(str(bmp.resolve()), 1400, 900)
+    ok = model.SaveBMP(str(bmp.resolve()), 1200, 900)
     if not ok or not bmp.exists():
         raise RuntimeError(f"SaveBMP failed for {bmp}")
 

@@ -21,13 +21,15 @@ It can help agents:
 - Launch SolidWorks through COM when possible
 - Check and install the Python dependency `pywin32`
 - Create a test part to verify the automation path
-- Extend toward parametric modeling, STEP/Parasolid export, and CFD preprocessing workflows
+- Extend toward parametric modeling, STEP/Parasolid export, and downstream simulation workflows in Ansys Fluent, Ansys Mechanical, COMSOL Multiphysics, or other CAE/CFD tools
 
 ## Example: Real SolidWorks Export
 
-The following image was exported from an actual SolidWorks test part through COM automation. The meshing gear pair is a better smoke test than a simple block because it exercises sketch contours, gear phasing, multiple extrusions, center holes, and view export.
+The following image was exported from an actual SolidWorks test part through COM automation. The gear pair example exercises sketch contours, gear phasing, multiple extrusions, center holes, and view export.
 
-![SolidWorks exported gear pair](docs/images/solidworks-exports/gear_pair_test.png)
+<p align="center">
+  <img src="docs/images/solidworks-exports/gear_pair_test.png" alt="SolidWorks exported gear pair" width="760">
+</p>
 
 The repository keeps only this complex preview image so the README stays focused.
 
@@ -95,8 +97,8 @@ AI Agent
   -> SolidWorks COM
   -> Parametric CAD modeling
   -> STEP / Parasolid export
-  -> Fluent Meshing / Fluent
-  -> Post-processing and result analysis
+  -> Ansys Fluent / COMSOL / other CAE tools
+  -> Meshing, solving, post-processing, and result analysis
 ```
 
 ## Repository Structure
