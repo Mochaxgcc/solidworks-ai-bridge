@@ -28,7 +28,7 @@ It can help agents:
 The following image was exported from an actual SolidWorks test part through COM automation. The gear pair example exercises sketch contours, gear phasing, multiple extrusions, center holes, and view export.
 
 <p align="center">
-  <img src="docs/images/solidworks-exports/gear_pair_test.png" alt="SolidWorks exported gear pair" width="760">
+  <img src="docs/images/solidworks-exports/gear_pair_centered.png" alt="SolidWorks exported gear pair" width="760">
 </p>
 
 The repository keeps only this complex preview image so the README stays focused.
@@ -75,7 +75,7 @@ python .\scripts\sw_probe.py --create-test-part --output .\solidworks_com_test.S
 Create a meshing gear pair test part:
 
 ```powershell
-python .\scripts\create_gear_pair_test_part.py --output .\solidworks_gear_pair_test.SLDPRT --image-output .\docs\images\solidworks-exports\gear_pair_test.png
+python .\scripts\create_gear_pair_test_part.py --output .\solidworks_gear_pair_test.SLDPRT --image-output .\docs\images\solidworks-exports\gear_pair_centered.png
 ```
 
 By default, the gear script closes the generated SolidWorks document after saving and exporting the preview image so repeated runs do not leave many `Part1`, `Part2`, or similar windows open. Add `--keep-open` if you want to inspect the generated part interactively.

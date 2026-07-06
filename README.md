@@ -30,7 +30,7 @@ SldWorks.Application
 下面图片来自脚本创建的 SolidWorks 测试零件，并通过 SolidWorks COM 自动导出。这个齿轮对示例用于验证 sketch 轮廓、相位关系、多特征拉伸、中心孔和视图导出是否正常。
 
 <p align="center">
-  <img src="docs/images/solidworks-exports/gear_pair_test.png" alt="SolidWorks exported gear pair" width="760">
+  <img src="docs/images/solidworks-exports/gear_pair_centered.png" alt="SolidWorks exported gear pair" width="760">
 </p>
 
 GitHub 仓库只保留这一个复杂示例图，README 保持聚焦。
@@ -100,7 +100,7 @@ python .\scripts\sw_probe.py --create-test-part --output .\solidworks_com_test.S
 创建两个啮合齿轮测试件：
 
 ```powershell
-python .\scripts\create_gear_pair_test_part.py --output .\solidworks_gear_pair_test.SLDPRT --image-output .\docs\images\solidworks-exports\gear_pair_test.png
+python .\scripts\create_gear_pair_test_part.py --output .\solidworks_gear_pair_test.SLDPRT --image-output .\docs\images\solidworks-exports\gear_pair_centered.png
 ```
 
 齿轮脚本默认会在保存和导出图片后关闭生成的 SolidWorks 文档，避免 SolidWorks 里堆积很多 `零件1`、`零件2` 这类窗口。如果需要保留窗口用于检查，可以追加：
