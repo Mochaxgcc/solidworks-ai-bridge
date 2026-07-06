@@ -294,9 +294,35 @@ def export_png(sw, part: Path, png: Path) -> None:
 
     from PIL import Image
 
-    Image.open(bmp).save(png)
+    center_image_on_canvas(Image.open(bmp), png)
     bmp.unlink()
     print(f"SAVED_IMAGE {png.resolve()}")
+
+
+def center_image_on_canvas(image, output: Path) -> None:
+    image = image.convert("RGB")
+    width, height = image.size
+    xs: list[int] = []
+    ys: list[int] = []
+
+    for y in range(height):
+        for x in range(width):
+            red, green, blue = image.getpixel((x, y))
+            if red < 190 and green < 190 and blue < 190:
+                xs.append(x)
+                ys.append(y)
+
+    if not xs:
+        image.save(output)
+        return
+
+    left = max(min(xs) - 70, 0)
+    upper = max(min(ys) - 70, 0)
+    right = min(max(xs) + 70, width - 1)
+    lower = min(max(ys) + 70, height - 1)
+    cropped = image.crop((left, upper, right + 1, lower + 1))
+
+    cropped.save(output)
 
 
 def main() -> int:
