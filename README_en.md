@@ -72,6 +72,13 @@ Not guaranteed:
 - Unlicensed, COM-unregistered, or policy-restricted SolidWorks installations
 - Very old SolidWorks versions where API signatures may differ
 
+## Version Roadmap
+
+| Version | Status | Notes |
+| --- | --- | --- |
+| v0.1 | Current first release | Establishes the basic AI-agent-to-SolidWorks COM workflow: connect to local SolidWorks, create a test part, export a preview image, and close generated documents by default to reduce memory usage. |
+| Future versions | Continuous improvement | Will continue to improve based on real usage, including richer parametric modeling, more engineering-grade gear/surface/channel examples, STEP/Parasolid export, and Ansys / COMSOL simulation handoff workflows. |
+
 ## Install for Codex
 
 The simplest approach is to ask a local AI coding agent to install the skill directly:

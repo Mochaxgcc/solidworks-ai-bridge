@@ -85,6 +85,13 @@ SldWorks.Application
 - 未激活、COM 未注册或被公司权限策略限制的 SolidWorks
 - 很老的 SolidWorks 版本，部分 API 参数可能不同
 
+## 版本路线
+
+| 版本 | 状态 | 说明 |
+| --- | --- | --- |
+| v0.1 | 当前第一版 | 打通 AI Agent 通过 SolidWorks COM 连接本机 SolidWorks、创建测试零件、导出预览图，并默认关闭生成文档以减少内存占用。 |
+| 后续版本 | 持续优化 | 根据实际使用反馈继续优化，包括更复杂的参数化建模、工程级齿轮/曲面/流道示例、STEP/Parasolid 导出、Ansys / COMSOL 等仿真软件衔接流程。 |
+
 ## 安装到 Codex
 
 最简单的方式是直接把这个仓库发给支持本地命令执行的 AI Agent：
