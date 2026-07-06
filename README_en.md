@@ -25,14 +25,15 @@ It can help agents:
 
 ## Example: Real SolidWorks Export
 
-The following image was exported from an actual SolidWorks test part through COM automation.
+The following image was exported from an actual SolidWorks test part through COM automation. The meshing gear pair is a better smoke test than a simple block because it exercises sketch contours, gear phasing, multiple extrusions, and view export.
 
-![SolidWorks exported test part](docs/images/solidworks-exports/codex_sw_block_test.png)
+![SolidWorks exported gear pair](docs/images/solidworks-exports/gear_pair_test.png)
 
 More exported examples:
 
 | Part | Preview |
 | --- | --- |
+| `solidworks_gear_pair_test.SLDPRT` | <img src="docs/images/solidworks-exports/gear_pair_test.png" width="280"> |
 | `codex_sw_block_test.SLDPRT` | <img src="docs/images/solidworks-exports/codex_sw_block_test.png" width="280"> |
 | `codex_sw_block_test_from_script.SLDPRT` | <img src="docs/images/solidworks-exports/codex_sw_block_test_from_script.png" width="280"> |
 | `skill_sw_block_test.SLDPRT` | <img src="docs/images/solidworks-exports/skill_sw_block_test.png" width="280"> |
@@ -78,6 +79,12 @@ Create a test part:
 python .\scripts\sw_probe.py --create-test-part --output .\solidworks_com_test.SLDPRT
 ```
 
+Create a meshing gear pair test part:
+
+```powershell
+python .\scripts\create_gear_pair_test_part.py --output .\solidworks_gear_pair_test.SLDPRT --image-output .\docs\images\solidworks-exports\gear_pair_test.png
+```
+
 Expected output:
 
 ```text
@@ -108,6 +115,7 @@ solidworks-ai-bridge/
 ├── README_en.md
 ├── requirements.txt
 ├── scripts/
+│   ├── create_gear_pair_test_part.py
 │   └── sw_probe.py
 └── docs/
     └── images/

@@ -27,14 +27,15 @@ SldWorks.Application
 
 ## 示例：真实 SolidWorks 导出的测试零件
 
-下面图片来自脚本创建的 SolidWorks 测试零件，并通过 SolidWorks COM 自动导出。
+下面图片来自脚本创建的 SolidWorks 测试零件，并通过 SolidWorks COM 自动导出。相比普通长方体，齿轮对更适合用来验证 sketch 轮廓、相位关系、多特征拉伸和视图导出是否正常。
 
-![SolidWorks exported test part](docs/images/solidworks-exports/codex_sw_block_test.png)
+![SolidWorks exported gear pair](docs/images/solidworks-exports/gear_pair_test.png)
 
 更多导出示例：
 
 | 测试件 | 预览 |
 | --- | --- |
+| `solidworks_gear_pair_test.SLDPRT` | <img src="docs/images/solidworks-exports/gear_pair_test.png" width="280"> |
 | `codex_sw_block_test.SLDPRT` | <img src="docs/images/solidworks-exports/codex_sw_block_test.png" width="280"> |
 | `codex_sw_block_test_from_script.SLDPRT` | <img src="docs/images/solidworks-exports/codex_sw_block_test_from_script.png" width="280"> |
 | `skill_sw_block_test.SLDPRT` | <img src="docs/images/solidworks-exports/skill_sw_block_test.png" width="280"> |
@@ -103,6 +104,12 @@ python .\scripts\sw_probe.py --install-deps
 python .\scripts\sw_probe.py --create-test-part --output .\solidworks_com_test.SLDPRT
 ```
 
+创建两个啮合齿轮测试件：
+
+```powershell
+python .\scripts\create_gear_pair_test_part.py --output .\solidworks_gear_pair_test.SLDPRT --image-output .\docs\images\solidworks-exports\gear_pair_test.png
+```
+
 正常情况下会看到类似输出：
 
 ```text
@@ -155,6 +162,7 @@ solidworks-ai-bridge/
 ├── README_en.md
 ├── requirements.txt
 ├── scripts/
+│   ├── create_gear_pair_test_part.py
 │   └── sw_probe.py
 └── docs/
     └── images/
