@@ -1,0 +1,16 @@
+*.SLDPRT
+*.SLDASM
+*.SLDDRW
+*.sldprt
+*.sldasm
+*.slddrw
+*.STEP
+*.STP
+*.step
+*.stp
+*.x_t
+*.x_b
+__pycache__/
+*.pyc
+.venv/
+venv/
